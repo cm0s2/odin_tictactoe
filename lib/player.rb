@@ -9,9 +9,10 @@ class Player
 
   def select_position
     loop do
-      puts "#{marker} chooses:"
+      #puts "#{marker} chooses:"
       cell = gets.to_i
       return cell if cell.between?(1, 9)
+      puts 'Error: Please enter a number between 1 and 9'
     end
   end
 end

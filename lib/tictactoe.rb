@@ -32,6 +32,7 @@ class TicTacToe
   private
 
   def get_player_input(num)
+    puts "#{@players[num].marker} choose:"
     while choice = @players[num].select_position
       if free_cell?(choice)
         place_mark(@players[num], choice)
@@ -80,23 +81,5 @@ class TicTacToe
 
   def free_cell?(cell)
     cell.between?(1, 9) && @grid[cell].nil?
-  end
-end
-
-# Player class
-class Player
-  attr_reader :marker
-
-  def initialize(game, marker)
-    @game = game
-    @marker = marker
-  end
-
-  def select_position
-    loop do
-      puts "#{marker} chooses:"
-      cell = gets.to_i
-      return cell if cell.between?(1, 9)
-    end
   end
 end
